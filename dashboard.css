@@ -1,0 +1,92 @@
+/* Importe as fontes Roboto e Font Awesome no HTML */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #222;
+    color: #fff;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 100px auto 30px;
+    padding: 30px;
+    background-color: #333;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #eee;
+    margin-bottom: 20px;
+}
+
+/* Layout com Grid */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr; /* Uma única coluna */
+    gap: 30px;
+}
+
+/* Estilos dos cards de estatísticas */
+.dashboard-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    gap: 20px;
+}
+
+.stat {
+    background-color: #282c34;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    flex: 1 0 280px; /* Cada card ocupa pelo menos 280px e pode crescer */
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ... (outros estilos dos cards) ... */
+
+/* Estilos das seções de informações */
+.info-section {
+    display: flex;
+    flex-direction: column; /* Empilha as seções verticalmente */
+    gap: 20px;
+    align-items: center; /* Centraliza as seções horizontalmente */
+}
+
+.info-section section {
+    background-color: #282c34;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Largura das seções */
+}
+
+/* ... (outros estilos das seções) ... */
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .dashboard-stats {
+        flex-direction: column; /* Os cards ficam um abaixo do outro em telas menores */
+        align-items: center;
+    }
+
+    .stat {
+        width: 90%; /* Ajusta a largura dos cards em telas menores */
+    }
+}

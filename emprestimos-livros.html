@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empréstimos - Biblioteca</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="emprestimos-livros.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Biblioteca</div>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="cadastro-livros.html">Cadastrar Livros</a></li>
+            <li><a href="listagem-livros.html">Listar Livros</a></li>
+            <li><a href="emprestimos-livros.html" class="active">Empréstimos</a></li>
+            <li><a href="gerenciamento-usuarios.html">Gerenciar Usuários</a></li>
+            <li><a href="cadastro-autores.html">Cadastrar Autor</a></li>
+            <li><a href="relatorios.html">Relatórios</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Controle de Empréstimos</h1>
+
+        <section class="registro-emprestimo">
+            <h2>Registrar Empréstimo</h2>
+            <form id="form-emprestimo">
+                <div class="form-group">
+                    <label for="livro">Livro:</label>
+                    <input type="text" id="livro" name="livro" placeholder="Digite o título do livro" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="usuario">Usuário:</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Digite o nome do usuário" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="data-emprestimo">Data do Empréstimo:</label>
+                    <input type="date" id="data-emprestimo" name="data-emprestimo" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Registrar Empréstimo</button>
+            </form>
+        </section>
+
+        <section class="emprestimos-ativos" aria-label="Tabela com a lista de empréstimos ativos">
+            <header>
+                <h2>Empréstimos Ativos</h2>
+            </header>
+            <div class="filters">
+                <div class="form-group">
+                    <label for="search-emprestimos">Pesquisar:</label>
+                    <input type="search" id="search-emprestimos" placeholder="Pesquisar empréstimos...">
+                </div>
+
+                <div class="form-group">
+                    <label for="filter-status">Status:</label>
+                    <select id="filter-status">
+                        <option value="">Todos</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="devolvido">Devolvido</option>
+                    </select>
+                </div>
+
+                <button id="filter-btn" class="btn btn-secondary">Filtrar</button>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Livro</th>
+                        <th>Usuário</th>
+                        <th>Data do Empréstimo</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-emprestimos">
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <ul>
+                    <li><button class="prev-page"><</button></li>
+                    <li><button class="next-page">></button></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Biblioteca. Todos os direitos reservados.</p>
+    </footer>
+    <script src="emprestimos-livros.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+/* Importe as fontes Roboto e Montserrat no HTML */
+
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    color: #212529;
+}
+
+/* Estilos do Navegador */
+nav {
+    background-color: #212529;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ocupa toda a largura da tela */
+    position: fixed; /* Fixa o menu no topo */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Garante que o menu fique acima de outros elementos */
+}
+
+nav .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos do Container (aplicado em todas as páginas) */
+.container {
+    max-width: 900px; 
+    margin: 100px auto 30px auto; /* Margem superior para evitar sobreposição com o menu */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos do Rodapé (aplicado em todas as páginas) */
+footer {
+    background-color: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed; /* Fixa o rodapé na parte inferior da tela */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra no topo do rodapé */
+}
+
+/* Responsividade do Menu */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+}

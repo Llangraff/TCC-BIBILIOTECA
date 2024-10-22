@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Livros - Biblioteca</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="listagem-livros.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Biblioteca</div>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="cadastro-livros.html">Cadastrar Livros</a></li>
+            <li><a href="listagem-livros.html" class="active">Listar Livros</a></li>
+            <li><a href="emprestimos-livros.html">Empréstimos</a></li>
+            <li><a href="gerenciamento-usuarios.html">Gerenciar Usuários</a></li>
+            <li><a href="cadastro-autores.html">Cadastrar Autor</a></li>
+            <li><a href="relatorios.html">Relatórios</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Listagem de Livros</h1>
+
+        <form class="filters">
+            <div class="form-group">
+                <label for="search-input">Pesquisar por Título:</label>
+                <input type="search" id="search-input" placeholder="Título do livro...">
+            </div>
+
+            <div class="form-group">
+                <label for="search-autor">Pesquisar por Autor:</label>
+                <input type="search" id="search-autor" placeholder="Nome do autor...">
+            </div>
+
+            <div class="form-group">
+                <label for="filter-genero">Gênero:</label>
+                <select id="filter-genero">
+                    <option value="">Todos</option>
+                    <option value="Ficção Científica">Ficção Científica</option>
+                    <option value="Fantasia">Fantasia</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filter-ano">Ano:</label>
+                <input type="number" id="filter-ano" placeholder="Ano" min="1500" max="2024">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Pesquisar</button>
+        </form>
+
+        <table aria-label="Tabela com a lista de livros cadastrados">
+            <caption>Lista de Livros Cadastrados</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Gênero</th>
+                    <th>Ano</th>
+                    <th>ISBN</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-livros">
+            </tbody>
+        </table>
+
+        <div id="pagination">
+            </div>
+    </div>
+
+    <div id="modalEdicaoLivro" class="modal">
+        </div>
+
+    <footer>
+        <p>© 2024 Biblioteca. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="listagem-livros.js"></script>
+</body>
+</html>

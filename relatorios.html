@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="relatorios.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Relatórios da Biblioteca</title>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Biblioteca</div>
+    <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="cadastro-livros.html">Cadastrar Livros</a></li>
+        <li><a href="listagem-livros.html">Listar Livros</a></li>
+        <li><a href="emprestimos-livros.html">Empréstimos</a></li>
+        <li><a href="gerenciamento-usuarios.html">Gerenciar Usuários</a></li>
+        <li><a href="cadastro-autores.html">Cadastrar Autor</a></li>
+        <li><a href="relatorios.html" class="active">Relatórios</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Relatórios da Biblioteca</h1>
+        <p>Visualize e gere relatórios sobre o acervo, usuários e empréstimos da biblioteca.</p>
+    </header>
+
+    <section aria-label="Relatórios">
+        <article class="relatorio relatorio-livros">
+            <h2>Livros Cadastrados</h2>
+            <p>Total de livros cadastrados: <span id="total-livros">0</span></p>
+            <button class="btn btn-primary" onclick="gerarRelatorioLivros()" aria-label="Gerar relatório de livros cadastrados">Gerar Relatório</button>
+        </article>
+
+        <article class="relatorio relatorio-emprestimos">
+            <h2>Empréstimos Realizados</h2>
+            <p>Total de empréstimos realizados: <span id="total-emprestimos">0</span></p>
+            <button class="btn btn-primary" onclick="gerarRelatorioEmprestimos()" aria-label="Gerar relatório de empréstimos realizados">Gerar Relatório</button>
+        </article>
+
+        <article class="relatorio relatorio-usuarios">
+            <h2>Usuários Cadastrados</h2>
+            <p>Total de usuários cadastrados: <span id="total-usuarios">0</span></p>
+            <button class="btn btn-primary" onclick="gerarRelatorioUsuarios()" aria-label="Gerar relatório de usuários cadastrados">Gerar Relatório</button>
+        </article>
+    </section>
+</div>
+
+<footer>
+    <p>© 2024 Biblioteca. Todos os direitos reservados.</p>
+</footer>
+<script src="relatorios.js"></script>
+</body>
+</html>

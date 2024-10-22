@@ -1,0 +1,135 @@
+/* Importe as fontes Roboto e Font Awesome no HTML */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 100px auto 30px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* Estilos das seções */
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center; /* Centraliza os títulos das seções */
+}
+
+/* Estilos do formulário de registro */
+#form-emprestimo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1 0 250px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos dos filtros */
+.filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filters .form-group {
+    flex: 1 0 200px;
+    margin: 0 10px 0 0;
+}
+
+/* Estilos da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Estilos da paginação */
+.pagination ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination button {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Biblioteca</div>
+        <ul>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="cadastro-livros.html">Cadastrar Livros</a></li>
+            <li><a href="listagem-livros.html">Listar Livros</a></li>
+            <li><a href="emprestimos-livros.html">Empréstimos</a></li>
+            <li><a href="gerenciamento-usuarios.html">Gerenciar Usuários</a></li>
+            <li><a href="cadastro-autores.html">Cadastrar Autor</a></li>
+            <li><a href="relatorios.html">Relatórios</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Dashboard</h1>
+            <p>Bem-vindo(a) à Biblioteca! Aqui está um resumo das principais informações.</p>
+        </header>
+
+        <section class="dashboard-content">
+            <div class="estatisticas">
+                <section class="dashboard-stats" role="region" aria-label="Estatísticas da biblioteca">
+                    <article class="stat" aria-label="Total de livros">
+                        <header>
+                            <h3><i class="fas fa-book"></i> Total de Livros</h3>
+                        </header>
+                        <p id="total-livros">0</p>
+                    </article>
+
+                    <article class="stat" aria-label="Empréstimos ativos">
+                        <header>
+                            <h3><i class="fas fa-exchange-alt"></i> Empréstimos Ativos</h3>
+                        </header>
+                        <p id="emprestimos-ativos">0</p>
+                    </article>
+
+                    <article class="stat" aria-label="Usuários registrados">
+                        <header>
+                            <h3><i class="fas fa-users"></i> Usuários Registrados</h3>
+                        </header>
+                        <p id="total-usuarios">0</p>
+                    </article>
+                </section>
+            </div>
+                <section class="devolucoes" aria-label="Livros com Devolução Próxima">
+                    <h2>Livros com Devolução Próxima</h2>
+                    <table id="tabela-devolucoes">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Usuário</th>
+                                <th>Data de Devolução</th>
+                                <th>Dias Restantes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="paginacao">
+                        <button id="btn-anterior" disabled>Anterior</button>
+                        <button id="btn-proximo">Próximo</button>
+                    </div>
+                </section>
+
+                <section class="atrasos" aria-label="Usuários com Empréstimos Atrasados">
+                    <h2>Usuários com Empréstimos Atrasados</h2>
+                    <ul id="lista-atrasos">
+                        </ul>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Biblioteca. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

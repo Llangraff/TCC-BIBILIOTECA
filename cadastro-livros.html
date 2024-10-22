@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Livros - Biblioteca</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cadastro-livros.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">Biblioteca</div>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="cadastro-livros.html" class="active">Cadastrar Livros</a></li>
+            <li><a href="listagem-livros.html">Listar Livros</a></li>
+            <li><a href="emprestimos-livros.html">Empréstimos</a></li>
+            <li><a href="gerenciamento-usuarios.html">Gerenciar Usuários</a></li> 
+            <li><a href="cadastro-autores.html">Cadastro Autores</a></li>
+            <li><a href="relatorios.html">Relatórios</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Cadastro de Livros</h1>
+        <form id="form-cadastro-livro">
+            <input type="hidden" id="livro-id"> 
+
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Digite o título do livro" required>
+            </div>
+
+            <div class="form-group">
+                <label for="autor">Autor</label>
+                <input type="text" id="autor" name="autor" placeholder="Digite o autor do livro" required>
+            </div>
+
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" id="isbn" name="isbn" placeholder="Digite o ISBN do livro" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editora">Editora</label>
+                <input type="text" id="editora" name="editora" placeholder="Digite a editora do livro">
+            </div>
+
+            <div class="form-group">
+                <label for="ano">Ano</label>
+                <input type="number" id="ano" name="ano" placeholder="Digite o ano de publicação" required min="1500" max="2024">
+            </div>
+
+            <div class="form-group">
+                <label for="edicao">Edição</label>
+                <input type="text" id="edicao" name="edicao" placeholder="Digite a edição do livro">
+            </div>
+
+            <div class="form-group">
+                <label for="genero">Gênero</label>
+                <select id="genero" name="genero" required>
+                    <option value="">Selecione o Gênero</option>
+                    <option value="Ficção Científica">Ficção Científica</option>
+                    <option value="Fantasia">Fantasia</option>
+                    <option value="Mistério">Mistério</option>
+                    <option value="Biografia">Biografia</option>
+                    <option value="Não-Ficção">Não-Ficção</option>
+                    <option value="Ficção Histórica">Ficção Histórica</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label for="publico_alvo">Público Alvo</label>
+                <select id="publico_alvo" name="publico_alvo">
+                    <option value="">Selecione o Público Alvo</option>
+                    <option value="Infantil">Infantil</option>
+                    <option value="Juvenil">Juvenil</option>
+                    <option value="Adulto">Adulto</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exemplares">Exemplares</label>
+                <input type="number" id="exemplares" name="exemplares" placeholder="Digite o número de exemplares" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="localizacao">Localização</label>
+                <input type="text" id="localizacao" name="localizacao" placeholder="Digite a localização do livro (ex: Estante A, Prateleira 2)">
+            </div>
+
+            <button type="submit" class="button primary">Salvar Livro</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 Biblioteca. Todos os direitos reservados.</p>
+    </footer>
+    <script src="cadastro-livros.js"></script>
+</body>
+</html>
