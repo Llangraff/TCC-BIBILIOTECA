@@ -1,92 +1,144 @@
-/* Importe as fontes Roboto e Font Awesome no HTML */
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #222;
-    color: #fff;
-}
-
+/* Container geral */
 .container {
-    max-width: 1100px;
-    margin: 100px auto 30px;
-    padding: 30px;
-    background-color: #333;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    max-width: 1200px;
+    margin: 80px auto 20px;
+    padding: 20px;
+    background-color: #f4f6f9;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-h1 {
-    font-size: 3rem;
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 1.8rem;
-    color: #eee;
+/* Estilização das abas (tabs) - agora centralizadas */
+.tabs {
+    display: flex;
+    justify-content: center; /* Centralizando as abas */
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-/* Layout com Grid */
-.dashboard-content {
-    display: grid;
-    grid-template-columns: 1fr; /* Uma única coluna */
+.tablink {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.tablink.active {
+    background-color: #0056b3;
+}
+
+.tablink:hover {
+    background-color: #0056b3;
+}
+
+/* Conteúdo das abas */
+.tabcontent {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+/* Estilização da visão geral (cartões de estatísticas) */
+.dashboard-stats {
+    display: flex;
+    justify-content: space-between;
     gap: 30px;
 }
 
-/* Estilos dos cards de estatísticas */
-.dashboard-stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centraliza os cards horizontalmente */
-    gap: 20px;
-}
-
 .stat {
-    background-color: #282c34;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
     text-align: center;
-    flex: 1 0 280px; /* Cada card ocupa pelo menos 280px e pode crescer */
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ... (outros estilos dos cards) ... */
-
-/* Estilos das seções de informações */
-.info-section {
-    display: flex;
-    flex-direction: column; /* Empilha as seções verticalmente */
-    gap: 20px;
-    align-items: center; /* Centraliza as seções horizontalmente */
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.info-section section {
-    background-color: #282c34;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 80%; /* Largura das seções */
+.stat h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #555;
 }
 
-/* ... (outros estilos das seções) ... */
+.stat p {
+    font-size: 36px;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+/* Estilo do gráfico */
+.dashboard-graphs {
+    margin-top: 40px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dashboard-graphs h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilização das tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f6f9;
+    color: #555;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
     .dashboard-stats {
-        flex-direction: column; /* Os cards ficam um abaixo do outro em telas menores */
-        align-items: center;
+        flex-direction: column;
     }
 
-    .stat {
-        width: 90%; /* Ajusta a largura dos cards em telas menores */
+    .tabs {
+        flex-direction: column;
+        align-items: center;
     }
+}
+/* Estilização do botão de devolução */
+.btn-devolver {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-devolver:hover {
+    background-color: #218838;
 }

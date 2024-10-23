@@ -1,114 +1,129 @@
-/* Importe as fontes Roboto e Font Awesome no HTML */
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
+/* Container geral */
 .container {
     max-width: 1200px;
-    margin: 100px auto 30px;
-    padding: 30px;
-    background-color: #fff;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
 }
 
-h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
-/* Estilos das seções */
-section {
-    margin-bottom: 30px;
-}
-
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    text-align: center; /* Centraliza os títulos das seções */
-}
-
-/* Estilos do formulário de registro */
-#form-emprestimo {
+/* Estilização das abas (tabs) */
+.tabs {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    gap: 20px;
     margin-bottom: 20px;
 }
 
-.form-group {
-    flex: 1 0 250px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 10px;
-}
-
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="date"] {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.btn {
-    background-color: #007bff;
-    color: #fff;
+.tablink {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
     border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
-.btn:hover {
+.tablink.active {
     background-color: #0056b3;
 }
 
-/* Estilos dos filtros */
-.filters {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 20px;
+.tablink:hover {
+    background-color: #0056b3;
 }
 
-.filters .form-group {
-    flex: 1 0 200px;
-    margin: 0 10px 0 0;
+/* Conteúdo das abas */
+.tabcontent {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos da tabela */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+.tabcontent.active {
+    display: block;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
+/* Estilo para o formulário de registro de empréstimo */
+.registro-emprestimo {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-th {
-    background-color: #f0f0f0;
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-/* Estilos da paginação */
+input[type="text"], input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para a tabela de empréstimos ativos */
+.emprestimos-ativos {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f6f9;
+    font-weight: bold;
+    color: #555;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Paginação */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
 .pagination ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     padding: 0;
 }
 
@@ -117,19 +132,10 @@ th {
 }
 
 .pagination button {
-    padding: 8px 15px;
-    border: 1px solid #ddd;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
     border-radius: 5px;
-    background-color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.pagination button:hover {
-    background-color: #f0f0f0;
-}
-
-.pagination button:disabled {
-    opacity: 0.5;
-    cursor: default;
 }

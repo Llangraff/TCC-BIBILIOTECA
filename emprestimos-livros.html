@@ -17,7 +17,7 @@
             <li><a href="listagem-livros.html">Listar Livros</a></li>
             <li><a href="emprestimos-livros.html" class="active">Empréstimos</a></li>
             <li><a href="gerenciamento-usuarios.html">Gerenciar Usuários</a></li>
-            <li><a href="cadastro-autores.html">Cadastrar Autor</a></li>
+            <li><a href="cadastro-autores.html">Cadastrar Autores</a></li>
             <li><a href="relatorios.html">Relatórios</a></li>
         </ul>
     </nav>
@@ -25,77 +25,97 @@
     <div class="container">
         <h1>Controle de Empréstimos</h1>
 
-        <section class="registro-emprestimo">
-            <h2>Registrar Empréstimo</h2>
-            <form id="form-emprestimo">
-                <div class="form-group">
-                    <label for="livro">Livro:</label>
-                    <input type="text" id="livro" name="livro" placeholder="Digite o título do livro" required>
+        <!-- Sistema de abas -->
+        <div class="tabs">
+            <button class="tablink active" onclick="openTab(event, 'registro')">Registrar Empréstimos</button>
+            <button class="tablink" onclick="openTab(event, 'gerenciar')">Gerenciar Empréstimos</button>
+        </div>
+
+        <!-- Conteúdo da aba de Registrar Empréstimos -->
+        <div id="registro" class="tabcontent" style="display: block;">
+            <section class="registro-emprestimo">
+                <h2>Registrar Empréstimo</h2>
+                <form id="form-emprestimo">
+                    <div class="form-group">
+                        <label for="livro">Livro:</label>
+                        <input type="text" id="livro" name="livro" placeholder="Digite o título do livro" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usuario">Usuário:</label>
+                        <input type="text" id="usuario" name="usuario" placeholder="Digite o nome do usuário" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data-emprestimo">Data do Empréstimo:</label>
+                        <input type="date" id="data-emprestimo" name="data-emprestimo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data-devolucao">Data de Devolução:</label>
+                        <input type="date" id="data-devolucao" name="data-devolucao" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Registrar Empréstimo</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- Conteúdo da aba de Gerenciar Empréstimos -->
+        <div id="gerenciar" class="tabcontent" style="display: none;">
+            <section class="emprestimos-ativos" aria-label="Tabela com a lista de empréstimos ativos">
+                <header>
+                    <h2>Empréstimos Ativos</h2>
+                </header>
+                <div class="filters">
+                    <div class="form-group">
+                        <label for="search-emprestimos">Pesquisar:</label>
+                        <input type="search" id="search-emprestimos" placeholder="Pesquisar empréstimos...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filter-status">Status:</label>
+                        <select id="filter-status">
+                            <option value="">Todos</option>
+                            <option value="ativo">Ativo</option>
+                            <option value="devolvido">Devolvido</option>
+                        </select>
+                    </div>
+
+                    <button id="filter-btn" class="btn btn-secondary">Filtrar</button>
                 </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Livro</th>
+                            <th>Usuário</th>
+                            <th>Data do Empréstimo</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-emprestimos">
+                        <!-- Dados de empréstimos ativos serão carregados aqui -->
+                    </tbody>
+                </table>
 
-                <div class="form-group">
-                    <label for="usuario">Usuário:</label>
-                    <input type="text" id="usuario" name="usuario" placeholder="Digite o nome do usuário" required>
+                <div class="pagination">
+                    <ul>
+                        <li><button class="prev-page"><</button></li>
+                        <li><button class="next-page">></button></li>
+                    </ul>
                 </div>
-
-                <div class="form-group">
-                    <label for="data-emprestimo">Data do Empréstimo:</label>
-                    <input type="date" id="data-emprestimo" name="data-emprestimo" required>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Registrar Empréstimo</button>
-            </form>
-        </section>
-
-        <section class="emprestimos-ativos" aria-label="Tabela com a lista de empréstimos ativos">
-            <header>
-                <h2>Empréstimos Ativos</h2>
-            </header>
-            <div class="filters">
-                <div class="form-group">
-                    <label for="search-emprestimos">Pesquisar:</label>
-                    <input type="search" id="search-emprestimos" placeholder="Pesquisar empréstimos...">
-                </div>
-
-                <div class="form-group">
-                    <label for="filter-status">Status:</label>
-                    <select id="filter-status">
-                        <option value="">Todos</option>
-                        <option value="ativo">Ativo</option>
-                        <option value="devolvido">Devolvido</option>
-                    </select>
-                </div>
-
-                <button id="filter-btn" class="btn btn-secondary">Filtrar</button>
-            </div>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Livro</th>
-                        <th>Usuário</th>
-                        <th>Data do Empréstimo</th>
-                        <th>Status</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="tabela-emprestimos">
-                </tbody>
-            </table>
-
-            <div class="pagination">
-                <ul>
-                    <li><button class="prev-page"><</button></li>
-                    <li><button class="next-page">></button></li>
-                </ul>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 
     <footer>
         <p>© 2024 Biblioteca. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Incluindo o JavaScript -->
     <script src="emprestimos-livros.js"></script>
 </body>
 </html>

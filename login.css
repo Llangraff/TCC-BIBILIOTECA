@@ -1,84 +1,160 @@
-/* Importe as fontes Playfair Display e Lora no HTML */
-
+/* Corpo com um gradiente mais envolvente */
 body {
-    font-family: 'Lora', serif;
-    background-color: #f8f8f8;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
     display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .container {
-    max-width: 400px;
-    margin: auto;
-    padding: 30px;
-    background-color: #fff;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    flex-grow: 1; /* Permite que o container ocupe o espaço vertical disponível */
+    background-color: white;
+    padding: 50px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 header {
-    text-align: center;
     margin-bottom: 40px;
+    position: relative;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+header h1 {
+    font-size: 28px;
     color: #333;
-    margin-bottom: 10px;
-}
-
-h1 + p { /* Estilizando o parágrafo após o h1 */
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Estilos do formulário */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
     font-weight: bold;
-    margin-bottom: 5px;
 }
 
-input[type="email"],
-input[type="password"] {
-    padding: 10px;
+header p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Adicionando um SVG decorativo na borda superior */
+header::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png') no-repeat center;
+    background-size: 100px 100px;
+    width: 100px;
+    height: 100px;
+}
+
+/* Estilização aprimorada dos campos de formulário com animação */
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f7f9fc;
+    transition: border 0.3s, box-shadow 0.3s, transform 0.2s ease;
 }
 
+input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.3);
+    transform: scale(1.02); /* Sutil crescimento ao focar */
+}
+
+input::placeholder {
+    color: #bbb;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+input:focus::placeholder {
+    color: #007BFF;
+}
+
+/* Botão mais elegante com gradiente e animação */
 .btn-primary {
-    background-color: #007bff;
-    color: #fff;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    padding: 15px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.4);
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #0056b3, #003a75);
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 20px rgba(0, 123, 255, 0.5);
 }
 
-footer {
-    background-color: #343a40;
-    color: #fff;
+/* Efeito de erro visual com animação */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+/* Link para recuperação de senha */
+a {
     text-align: center;
-    padding: 10px 0;
-    margin-top: auto; /* Empurra o rodapé para baixo */
+    display: block;
+    margin-top: 20px;
+    font-size: 15px;
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #003a75;
+}
+
+/* Responsividade aprimorada para dispositivos móveis */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    header::before {
+        background-size: 70px 70px;
+        width: 70px;
+        height: 70px;
+    }
 }

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca - Dashboard</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <nav>
@@ -16,75 +17,95 @@
             <li><a href="listagem-livros.html">Listar Livros</a></li>
             <li><a href="emprestimos-livros.html">Empréstimos</a></li>
             <li><a href="gerenciamento-usuarios.html">Gerenciar Usuários</a></li>
-            <li><a href="cadastro-autores.html">Cadastrar Autor</a></li>
+            <li><a href="cadastro-autores.html">Cadastrar Autores</a></li>
             <li><a href="relatorios.html">Relatórios</a></li>
+
         </ul>
     </nav>
 
     <div class="container">
         <header>
             <h1>Dashboard</h1>
-            <p>Bem-vindo(a) à Biblioteca! Aqui está um resumo das principais informações.</p>
+            <p>Bem-vindo(a) à Biblioteca! Aqui estão as principais informações.</p>
         </header>
 
-        <section class="dashboard-content">
-            <div class="estatisticas">
-                <section class="dashboard-stats" role="region" aria-label="Estatísticas da biblioteca">
-                    <article class="stat" aria-label="Total de livros">
-                        <header>
-                            <h3><i class="fas fa-book"></i> Total de Livros</h3>
-                        </header>
-                        <p id="total-livros">0</p>
-                    </article>
+        <!-- Abas de navegação do dashboard -->
+        <div class="tabs">
+            <button class="tablink active" onclick="openTab(event, 'overview')">Visão Geral</button>
+            <button class="tablink" onclick="openTab(event, 'atrasos')">Livros em Atraso</button>
+            <button class="tablink" onclick="openTab(event, 'usuarios-atrasados')">Usuários em Atraso</button>
+        </div>
 
-                    <article class="stat" aria-label="Empréstimos ativos">
-                        <header>
-                            <h3><i class="fas fa-exchange-alt"></i> Empréstimos Ativos</h3>
-                        </header>
-                        <p id="emprestimos-ativos">0</p>
-                    </article>
+        <!-- Conteúdo da Visão Geral -->
+        <div id="overview" class="tabcontent" style="display: block;">
+            <section class="dashboard-stats">
+                <article class="stat">
+                    <h3>Total de Livros</h3>
+                    <p id="total-livros">1200</p>
+                </article>
 
-                    <article class="stat" aria-label="Usuários registrados">
-                        <header>
-                            <h3><i class="fas fa-users"></i> Usuários Registrados</h3>
-                        </header>
-                        <p id="total-usuarios">0</p>
-                    </article>
-                </section>
-            </div>
-                <section class="devolucoes" aria-label="Livros com Devolução Próxima">
-                    <h2>Livros com Devolução Próxima</h2>
-                    <table id="tabela-devolucoes">
-                        <thead>
-                            <tr>
-                                <th>Título</th>
-                                <th>Usuário</th>
-                                <th>Data de Devolução</th>
-                                <th>Dias Restantes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                    <div class="paginacao">
-                        <button id="btn-anterior" disabled>Anterior</button>
-                        <button id="btn-proximo">Próximo</button>
-                    </div>
-                </section>
+                <article class="stat">
+                    <h3>Empréstimos Ativos</h3>
+                    <p id="emprestimos-ativos">30</p>
+                </article>
 
-                <section class="atrasos" aria-label="Usuários com Empréstimos Atrasados">
-                    <h2>Usuários com Empréstimos Atrasados</h2>
-                    <ul id="lista-atrasos">
-                        </ul>
-                </section>
-            </div>
-        </section>
+                <article class="stat">
+                    <h3>Usuários Registrados</h3>
+                    <p id="total-usuarios">450</p>
+                </article>
+            </section>
+
+            <section class="dashboard-graphs">
+                <h2>Estatísticas de Empréstimos</h2>
+                <canvas id="loanChart"></canvas>
+            </section>
+        </div>
+
+        <!-- Conteúdo de Livros em Atraso -->
+        <div id="atrasos" class="tabcontent" style="display: none;">
+            <h2>Livros em Atraso</h2>
+            <table id="tabela-atrasos">
+                <thead>
+                    <tr>
+                        <th>Título do Livro</th>
+                        <th>Usuário</th>
+                        <th>Data de Devolução Prevista</th>
+                        <th>Dias de Atraso</th>
+                        <th>Ação</th> <!-- Nova coluna para o botão de devolver -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aqui serão carregados os livros em atraso -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Conteúdo de Usuários com Empréstimos Atrasados -->
+        <div id="usuarios-atrasados" class="tabcontent" style="display: none;">
+            <h2>Usuários com Empréstimos Atrasados</h2>
+            <table id="tabela-usuarios-atrasados">
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Livros em Atraso</th>
+                        <th>Dias de Atraso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aqui serão carregados os usuários com atrasos -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <footer>
         <p>© 2024 Biblioteca. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Incluindo Chart.js para os gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Incluindo o arquivo JavaScript externo -->
     <script src="dashboard.js"></script>
 </body>
 </html>

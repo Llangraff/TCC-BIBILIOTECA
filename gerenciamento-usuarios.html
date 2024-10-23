@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciar Usuários - Biblioteca</title>
+    <title>Gerenciamento de Usuários - Biblioteca</title>
     <link rel="stylesheet" href="style.css">
+
+
     <link rel="stylesheet" href="gerenciamento-usuarios.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -25,59 +32,83 @@
     <div class="container">
         <h1>Gerenciamento de Usuários</h1>
 
-        <section aria-label="Cadastrar Novo Usuário">
-            <h2>Cadastrar Novo Usuário</h2>
-            <form id="form-cadastro-usuario" aria-label="Formulário para cadastrar um novo usuário">
-                <div class="form-group">
-                    <label for="nome">Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required aria-describedby="error-nome">
-                    <small class="error-message" id="error-nome"></small>
-                </div>
+        <!-- Campo de busca -->
+        <div class="form-group">
+            <label for="search-usuarios">Pesquisar Usuários:</label>
+            <input type="search" id="search-usuarios" placeholder="Pesquisar por nome, e-mail ou telefone">
+        </div>
 
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" placeholder="Digite o e-mail do usuário" required aria-describedby="error-email">
-                    <small class="error-message" id="error-email"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="telefone">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="Digite o número de telefone" required aria-describedby="error-telefone">
-                    <small class="error-message" id="error-telefone"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="endereco">Endereço:</label>
-                    <input type="text" id="endereco" name="endereco" placeholder="Digite o endereço completo" required aria-describedby="error-endereco">
-                    <small class="error-message" id="error-endereco"></small>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Cadastrar Usuário</button>
-            </form>
-        </section>
-
-        <section aria-label="Usuários Registrados">
-            <h2>Usuários Registrados</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Telefone</th>
-                        <th>Endereço</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="tabela-usuarios">
-                </tbody>
-            </table>
-        </section>
+        <table id="tabela-usuarios" class="display">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-usuarios-body">
+                <!-- Linhas de usuários serão adicionadas dinamicamente -->
+            </tbody>
+        </table>
     </div>
 
     <footer>
         <p>© 2024 Biblioteca. Todos os direitos reservados.</p>
     </footer>
-    <script src="gerenciamento-usuario.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <!-- Script do DataTables e funcionalidades -->
+    <script>
+        $(document).ready(function() {
+            // Iniciar DataTables na tabela
+            $('#tabela-usuarios').DataTable();
+
+            // Função de excluir
+            function excluirUsuario(button) {
+                if (confirm("Deseja realmente excluir este usuário?")) {
+                    const row = button.parentElement.parentElement;
+                    row.remove();
+                    alert("Usuário excluído com sucesso!");
+                }
+            }
+
+            // Função de editar
+            function editarUsuario(button) {
+                const row = button.parentElement.parentElement;
+                const nome = row.querySelector('td:nth-child(2)').textContent;
+                const email = row.querySelector('td:nth-child(3)').textContent;
+                const telefone = row.querySelector('td:nth-child(4)').textContent;
+
+                document.getElementById('nome').value = nome;
+                document.getElementById('email').value = email;
+                document.getElementById('telefone').value = telefone;
+
+                row.remove();
+            }
+
+            // Função para buscar usuários
+            $('#search-usuarios').on('input', function() {
+                var searchTerm = this.value.toLowerCase();
+                $('#tabela-usuarios-body tr').each(function() {
+                    var nome = $(this).find('td:nth-child(2)').text().toLowerCase();
+                    var email = $(this).find('td:nth-child(3)').text().toLowerCase();
+                    var telefone = $(this).find('td:nth-child(4)').text().toLowerCase();
+
+                    if (nome.includes(searchTerm) || email.includes(searchTerm) || telefone.includes(searchTerm)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
